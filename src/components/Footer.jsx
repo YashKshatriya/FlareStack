@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Flame, Mail, MessageCircle, Globe, Share2, AtSign } from "lucide-react";
 
 const cols = [
   {
@@ -28,9 +27,6 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[1.4fr_0.8fr_0.8fr_1fr] gap-12">
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <span className="grid place-items-center h-8 w-8 rounded-full bg-gradient-to-br from-[#1B4EF5] to-[#3874FF]">
-                <Flame size={16} className="text-void" strokeWidth={2.5} />
-              </span>
               <span className="font-display text-lg font-semibold text-paper">Flare Stack</span>
             </Link>
             <p className="text-mute text-sm leading-relaxed max-w-xs">
@@ -38,16 +34,7 @@ export default function Footer() {
               advertising under one roof.
             </p>
             <div className="flex items-center gap-3 mt-6">
-              {[Globe, Share2, AtSign].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  aria-label="social link"
-                  className="grid place-items-center h-9 w-9 rounded-full border border-line text-mute hover:text-paper hover:border-[#1B4EF5]/50 transition-colors"
-                >
-                  <Icon size={15} />
-                </a>
-              ))}
+              <a href="#" className="text-sm text-mute hover:text-paper transition-colors">Social</a>
             </div>
           </div>
 
@@ -70,9 +57,9 @@ export default function Footer() {
             <p className="eyebrow mb-4">Get in touch</p>
             <a
               href="mailto:flarestack.team@gmail.com"
-              className="flex items-center gap-2 text-sm text-paper hover:text-[#3874FF] transition-colors mb-3"
+              className="text-sm text-paper hover:text-[#3874FF] transition-colors mb-3"
             >
-              <Mail size={15} /> flarestack.team@gmail.com
+              flarestack.team@gmail.com
             </a>
             <p className="text-xs text-mute mt-5 leading-relaxed">
               We're available 24/7 with a guaranteed fast response on every

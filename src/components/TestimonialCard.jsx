@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
 
 export default function TestimonialCard({ testimonial, index = 0 }) {
   return (
@@ -10,7 +9,7 @@ export default function TestimonialCard({ testimonial, index = 0 }) {
       transition={{ duration: 0.6, delay: (index % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
       className="relative rounded-2xl border border-line bg-surface p-7 sm:p-8 flex flex-col h-full"
     >
-      <Quote size={26} className="text-[#1B4EF5]/70 mb-4" />
+      <span className="text-[#1B4EF5]/70 mb-4 text-2xl">"</span>
       <p className="text-paper/90 text-[15px] leading-relaxed flex-1">
         "{testimonial.quote}"
       </p>

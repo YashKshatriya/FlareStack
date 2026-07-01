@@ -1,8 +1,6 @@
-import * as Icons from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ServiceCard({ service, index = 0, detailed = false, id }) {
-  const Icon = Icons[service.icon] || Icons.Sparkles;
   return (
     <motion.div
       id={id}
@@ -13,9 +11,6 @@ export default function ServiceCard({ service, index = 0, detailed = false, id }
       className="group relative rounded-2xl border border-line bg-surface p-7 sm:p-8 transition-all duration-300 hover:border-[#1B4EF5]/40 hover:-translate-y-1 hover:shadow-[0_0_40px_-10px_rgba(27,78,245,0.35)]"
     >
       <div className="flex items-center justify-between mb-6">
-        <span className="grid place-items-center h-12 w-12 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] group-hover:from-[#1B4EF5]/25 group-hover:to-[#3874FF]/25 transition-colors">
-          <Icon size={22} />
-        </span>
         <span className="font-mono text-xs text-mute">{String(index + 1).padStart(2, "0")}</span>
       </div>
       <h3 className="font-display text-xl font-semibold text-paper mb-2.5">
@@ -31,7 +26,7 @@ export default function ServiceCard({ service, index = 0, detailed = false, id }
           <ul className="mt-5 space-y-2.5">
             {service.bullets.map((b) => (
               <li key={b} className="flex items-start gap-2.5 text-sm text-paper/90">
-                <Icons.Flame size={14} className="mt-0.5 shrink-0 text-[#1B4EF5]" />
+                <span className="mt-0.5 shrink-0 text-[#1B4EF5]">•</span>
                 {b}
               </li>
             ))}

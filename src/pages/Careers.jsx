@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Briefcase, CheckCircle2, Loader2, AlertCircle, MapPin, Mail, Clock } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import { Eyebrow, FadeUp } from "../components/Section";
 import Button from "../components/Button";
@@ -77,7 +76,7 @@ export default function Careers() {
             <div className="rounded-2xl border border-line bg-surface p-8 sm:p-10">
               <div className="flex items-start gap-4">
                 <span className="grid place-items-center h-12 w-12 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] shrink-0">
-                  <Briefcase size={20} />
+                  <span className="text-xl">💼</span>
                 </span>
                 <div>
                   <h3 className="font-display text-xl font-semibold text-paper mb-2">General Application</h3>
@@ -119,7 +118,7 @@ export default function Careers() {
                 className="rounded-2xl border border-line bg-surface p-6 flex items-start gap-4"
               >
                 <span className="grid place-items-center h-11 w-11 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] shrink-0">
-                  <Mail size={19} />
+                  <span>✉️</span>
                 </span>
                 <div>
                   <p className="text-sm text-mute mb-1">Email us</p>
@@ -137,7 +136,7 @@ export default function Careers() {
                 className="rounded-2xl border border-line bg-surface p-6 flex items-start gap-4"
               >
                 <span className="grid place-items-center h-11 w-11 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] shrink-0">
-                  <Clock size={19} />
+                  <span>🕐</span>
                 </span>
                 <div>
                   <p className="text-sm text-mute mb-1">Response time</p>
@@ -153,7 +152,7 @@ export default function Careers() {
                 className="rounded-2xl border border-line bg-surface p-6 flex items-start gap-4"
               >
                 <span className="grid place-items-center h-11 w-11 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] shrink-0">
-                  <MapPin size={19} />
+                  <span>📍</span>
                 </span>
                 <div>
                   <p className="text-sm text-mute mb-1">Work location</p>
@@ -169,7 +168,7 @@ export default function Careers() {
                 className="rounded-2xl border border-line bg-gradient-to-br from-[#1B4EF5]/10 to-[#3874FF]/10 p-6"
               >
                 <div className="flex items-start gap-3">
-                  <Briefcase size={18} className="text-[#1B4EF5] mt-0.5 shrink-0" />
+                  <span className="text-[#1B4EF5] mt-0.5 shrink-0">💼</span>
                   <p className="text-sm text-paper/90 leading-relaxed">
                     We're looking for passionate people who want to build great products and grow with us. If you don't see a perfect match, we still want to hear from you.
                   </p>
@@ -185,7 +184,7 @@ export default function Careers() {
                   animate={{ opacity: 1, y: 0 }}
                   className="rounded-2xl border border-[#1B4EF5]/30 bg-surface p-12 text-center h-full flex flex-col items-center justify-center"
                 >
-                  <CheckCircle2 size={40} className="text-[#1B4EF5] mb-5" />
+                  <span className="text-[#1B4EF5] mb-5 text-4xl">✓</span>
                   <h3 className="font-display text-2xl font-semibold mb-2">Application received</h3>
                   <p className="text-mute max-w-sm">
                     Thanks for applying — our team will review it and get back to
@@ -243,15 +242,13 @@ export default function Careers() {
 
                   {status === "error" && (
                     <div className="flex items-center gap-2 text-sm text-[#1B4EF5]">
-                      <AlertCircle size={16} /> Something went wrong — please try again or email us directly.
+                      <span>⚠</span> Something went wrong — please try again or email us directly.
                     </div>
                   )}
 
                   <Button type="submit" className="w-full justify-center" icon={false}>
                     {status === "loading" ? (
-                      <span className="flex items-center gap-2">
-                        <Loader2 size={16} className="animate-spin" /> Submitting...
-                      </span>
+                      <span>Submitting...</span>
                     ) : (
                       "Submit application"
                     )}

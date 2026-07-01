@@ -1,4 +1,3 @@
-import { Target, Eye, Heart, Users, Rocket, ShieldCheck } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import { Eyebrow, FadeUp } from "../components/Section";
 import CTASection from "../components/CTASection";
@@ -6,22 +5,18 @@ import StatsStrip from "./StatsStrip";
 
 const values = [
   {
-    icon: ShieldCheck,
     title: "Honesty over hype",
     text: "We tell you what's actually working and what isn't — even when that means recommending less, not more.",
   },
   {
-    icon: Rocket,
     title: "Built to compound",
     text: "We design systems and campaigns that get more effective over time, not one-off projects that decay.",
   },
   {
-    icon: Users,
     title: "One team, your team",
     text: "Engineers, marketers and strategists work as a single unit around your goals — not in separate silos.",
   },
   {
-    icon: Heart,
     title: "Obsessed with outcomes",
     text: "Every deliverable is judged by the business result it produces, not how it looks in a deck.",
   },
@@ -75,7 +70,6 @@ export default function About() {
       <section className="py-24 lg:py-28 border-t border-line bg-surface/30">
         <div className="container-flare grid sm:grid-cols-2 gap-6">
           <FadeUp className="rounded-2xl border border-line bg-surface p-9">
-            <Target size={26} className="text-[#1B4EF5] mb-5" />
             <h3 className="font-display text-2xl font-semibold mb-3">Our mission</h3>
             <p className="text-mute leading-relaxed">
               To give growing businesses the same technology and marketing
@@ -84,7 +78,6 @@ export default function About() {
             </p>
           </FadeUp>
           <FadeUp delay={0.1} className="rounded-2xl border border-line bg-surface p-9">
-            <Eye size={26} className="text-[#3874FF] mb-5" />
             <h3 className="font-display text-2xl font-semibold mb-3">Our vision</h3>
             <p className="text-mute leading-relaxed">
               A world where every ambitious business has direct access to the
@@ -111,7 +104,6 @@ export default function About() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {values.map((v, i) => (
               <FadeUp key={v.title} delay={i * 0.06} className="rounded-2xl border border-line bg-surface p-7">
-                <v.icon size={22} className="text-[#1B4EF5] mb-5" />
                 <h3 className="font-display text-lg font-semibold mb-2">{v.title}</h3>
                 <p className="text-sm text-mute leading-relaxed">{v.text}</p>
               </FadeUp>

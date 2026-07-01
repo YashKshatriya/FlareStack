@@ -3,13 +3,12 @@ import ServiceCard from "../components/ServiceCard";
 import CTASection from "../components/CTASection";
 import { Eyebrow, FadeUp } from "../components/Section";
 import { services } from "../lib/data";
-import { Search, Heart, PlayCircle, Briefcase } from "lucide-react";
 
 const adPlatforms = [
-  { icon: Search, name: "Google Ads", desc: "Search, Display & Performance Max" },
-  { icon: Heart, name: "Meta Ads", desc: "Facebook & Instagram campaigns" },
-  { icon: PlayCircle, name: "YouTube Ads", desc: "Video & connected TV campaigns" },
-  { icon: Briefcase, name: "LinkedIn Ads", desc: "B2B lead generation & ABM" },
+  { name: "Google Ads", desc: "Search, Display & Performance Max" },
+  { name: "Meta Ads", desc: "Facebook & Instagram campaigns" },
+  { name: "YouTube Ads", desc: "Video & connected TV campaigns" },
+  { name: "LinkedIn Ads", desc: "B2B lead generation & ABM" },
 ];
 
 export default function Services() {
@@ -45,7 +44,7 @@ export default function Services() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {adPlatforms.map((p, i) => (
               <FadeUp key={p.name} delay={i * 0.06} className="rounded-2xl border border-line bg-surface p-7 text-center">
-                <p.icon size={26} className="text-[#3874FF] mx-auto mb-4" />
+                <span className="text-[#3874FF] mx-auto mb-4 text-2xl">📢</span>
                 <h3 className="font-display text-base font-semibold mb-1.5">{p.name}</h3>
                 <p className="text-xs text-mute">{p.desc}</p>
               </FadeUp>

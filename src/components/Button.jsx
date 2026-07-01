@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
 
 export default function Button({
   to,
@@ -25,12 +24,6 @@ export default function Button({
   const content = (
     <>
       {children}
-      {icon && (
-        <ArrowUpRight
-          size={16}
-          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-        />
-      )}
     </>
   );
 

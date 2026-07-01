@@ -1,39 +1,25 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Mail,
-  MessageCircle,
-  Clock,
-  Zap,
-  CheckCircle2,
-  Loader2,
-  AlertCircle,
-  MapPin,
-} from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import Button from "../components/Button";
 import { useFormSubmit } from "../lib/useFormSubmit";
 
 const infoCards = [
   {
-    icon: Mail,
     title: "Email us",
     value: "flarestack.team@gmail.com",
     href: "mailto:flarestack.team@gmail.com",
   },
   {
-    icon: MessageCircle,
     title: "WhatsApp",
     value: "Chat directly with our team",
     href: "https://wa.me/10000000000",
   },
   {
-    icon: Clock,
     title: "Availability",
     value: "Open 24/7, every day of the year",
   },
   {
-    icon: Zap,
     title: "Response time",
     value: "We reply within one business day, guaranteed",
   },
@@ -73,11 +59,8 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="rounded-2xl border border-line bg-surface p-6 flex items-start gap-4"
+                className="rounded-2xl border border-line bg-surface p-6"
               >
-                <span className="grid place-items-center h-11 w-11 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] shrink-0">
-                  <c.icon size={19} />
-                </span>
                 <div>
                   <p className="text-sm text-mute mb-1">{c.title}</p>
                   {c.href ? (
@@ -99,7 +82,7 @@ export default function Contact() {
               className="rounded-2xl border border-line bg-gradient-to-br from-[#1B4EF5]/10 to-[#3874FF]/10 p-6"
             >
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#1B4EF5] mt-0.5 shrink-0" />
+                <span className="text-[#1B4EF5] mt-0.5 shrink-0">📍</span>
                 <p className="text-sm text-paper/90 leading-relaxed">
                   Remote-first, working with clients worldwide — with team
                   members across multiple time zones for true 24/7 coverage.
@@ -116,7 +99,7 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 className="rounded-2xl border border-[#1B4EF5]/30 bg-surface p-12 text-center h-full flex flex-col items-center justify-center"
               >
-                <CheckCircle2 size={40} className="text-[#1B4EF5] mb-5" />
+                <span className="text-[#1B4EF5] mb-5 text-4xl">✓</span>
                 <h3 className="font-display text-2xl font-semibold mb-2">Message sent</h3>
                 <p className="text-mute max-w-sm">
                   Thanks for reaching out — we'll get back to you within one
@@ -175,15 +158,13 @@ export default function Contact() {
 
                 {status === "error" && (
                   <div className="flex items-center gap-2 text-sm text-[#1B4EF5]">
-                    <AlertCircle size={16} /> Something went wrong — please try again or email us directly.
+                    <span>⚠</span> Something went wrong — please try again or email us directly.
                   </div>
                 )}
 
                 <Button type="submit" className="w-full justify-center" icon={false}>
                   {status === "loading" ? (
-                    <span className="flex items-center gap-2">
-                      <Loader2 size={16} className="animate-spin" /> Sending...
-                    </span>
+                    <span>Sending...</span>
                   ) : (
                     "Send message"
                   )}

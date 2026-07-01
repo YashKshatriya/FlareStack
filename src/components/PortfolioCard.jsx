@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 
 export default function PortfolioCard({ project, index = 0 }) {
   return (
@@ -16,10 +15,6 @@ export default function PortfolioCard({ project, index = 0 }) {
         <span className="absolute bottom-4 left-5 font-mono text-[11px] uppercase tracking-widest text-void/80 bg-paper/85 px-2.5 py-1 rounded-full">
           {project.tag}
         </span>
-        <ArrowUpRight
-          size={18}
-          className="absolute top-4 right-4 text-void/70 transition-transform duration-300 group-hover:rotate-45"
-        />
       </div>
       <div className="p-6">
         <p className="eyebrow mb-2">{project.category}</p>

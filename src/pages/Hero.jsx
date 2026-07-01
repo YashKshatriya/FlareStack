@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Flame, ShieldCheck, Zap } from "lucide-react";
 import Button from "../components/Button";
 import FlareTrail from "../components/FlareTrail";
 
@@ -19,7 +18,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/60 px-4 py-1.5 mb-8"
           >
-            <Flame size={13} className="text-[#1B4EF5]" />
+            <span className="text-[#1B4EF5]">🔥</span>
             <span className="font-mono text-xs text-mute tracking-wide">
               Digital growth, engineered
             </span>
@@ -69,11 +68,11 @@ export default function Hero() {
             className="flex items-center gap-7 mt-12 text-mute"
           >
             <div className="flex items-center gap-2">
-              <ShieldCheck size={16} className="text-[#5b6eff]" />
+              <span className="text-[#5b6eff]">🛡️</span>
               <span className="text-xs">Trusted by 120+ businesses</span>
             </div>
             <div className="flex items-center gap-2">
-              <Zap size={16} className="text-[#3874FF]" />
+              <span className="text-[#3874FF]">⚡</span>
               <span className="text-xs">24/7 support, fast response</span>
             </div>
           </motion.div>

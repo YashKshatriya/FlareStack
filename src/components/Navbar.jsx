@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Flame } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "./Button";
 
@@ -35,9 +34,6 @@ export default function Navbar() {
     >
       <nav className="container-flare flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
-          <span className="relative grid place-items-center h-8 w-8 rounded-full bg-gradient-to-br from-[#1B4EF5] to-[#3874FF]">
-            <Flame size={16} className="text-void" strokeWidth={2.5} />
-          </span>
           <span className="font-display text-lg font-semibold tracking-tight text-paper">
             Flare Stack
           </span>
@@ -80,7 +76,7 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? "✕" : "☰"}
         </button>
       </nav>
 
