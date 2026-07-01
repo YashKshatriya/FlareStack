@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Briefcase, CheckCircle2, Loader2, AlertCircle, MapPin } from "lucide-react";
+import { Briefcase, CheckCircle2, Loader2, AlertCircle, MapPin, Mail, Clock } from "lucide-react";
 import PageHeader from "../components/PageHeader";
 import { Eyebrow, FadeUp } from "../components/Section";
 import Button from "../components/Button";
@@ -17,7 +17,7 @@ const perks = [
 export default function Careers() {
   const [selected, setSelected] = useState(null);
   const { status, submit } = useFormSubmit();
-  const [form, setForm] = useState({ name: "", email: "", position: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", position: "", message: "" });
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
@@ -96,8 +96,8 @@ export default function Careers() {
 
       {/* Application form */}
       <section id="apply" className="py-24 lg:py-28 border-t border-line bg-surface/30">
-        <div className="container-flare max-w-2xl">
-          <FadeUp className="text-center mb-12">
+        <div className="container-flare">
+          <FadeUp className="text-center mb-12 max-w-2xl mx-auto">
             <Eyebrow>Job application</Eyebrow>
             <h2 className="font-display text-3xl sm:text-4xl font-semibold tracking-tight mt-4">
               {selected ? `Apply for ${selected}` : "Don't see your role? Apply anyway."}
@@ -108,78 +108,161 @@ export default function Careers() {
             </p>
           </FadeUp>
 
-          {status === "success" ? (
-            <FadeUp className="rounded-2xl border border-[#1B4EF5]/30 bg-surface p-10 text-center">
-              <CheckCircle2 size={36} className="text-[#1B4EF5] mx-auto mb-4" />
-              <h3 className="font-display text-xl font-semibold mb-2">Application received</h3>
-              <p className="text-mute text-sm">
-                Thanks for applying — our team will review it and get back to
-                you soon.
-              </p>
-            </FadeUp>
-          ) : (
-            <motion.form
-              onSubmit={handleSubmit}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="rounded-2xl border border-line bg-surface p-7 sm:p-9 space-y-5"
-            >
-              <div className="grid sm:grid-cols-2 gap-5">
-                <Field label="Full name" name="name" value={form.name} onChange={handleChange} required />
-                <Field label="Email address" name="email" type="email" value={form.email} onChange={handleChange} required />
-              </div>
-              <div>
-                <label className="text-sm text-paper/90 mb-2 block">Position</label>
-                <select
-                  name="position"
-                  value={form.position}
-                  onChange={handleChange}
-                  required
-                  className="w-full rounded-lg bg-void border border-line px-4 py-3 text-sm text-paper focus:outline-none focus:border-[#ff5e3a]/60 transition-colors"
-                >
-                  <option value="">Select a role</option>
-                  {jobs.map((j) => (
-                    <option key={j.title} value={j.title}>
-                      {j.title}
-                    </option>
-                  ))}
-                  <option value="General application">General application</option>
-                </select>
-              </div>
-              <div>
-                <label className="text-sm text-paper/90 mb-2 block">
-                  Tell us about yourself & link your resume/portfolio
-                </label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  placeholder="A bit about your experience, and a link to your resume or portfolio..."
-                  className="w-full rounded-lg bg-void border border-line px-4 py-3 text-sm text-paper placeholder:text-mute/60 focus:outline-none focus:border-[#1B4EF5]/60 transition-colors resize-none"
-                />
-              </div>
-
-              {status === "error" && (
-                <div className="flex items-center gap-2 text-sm text-[#1B4EF5]">
-                  <AlertCircle size={16} /> Something went wrong — please try again or email us directly.
+          <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-12">
+            {/* Info column */}
+            <div className="space-y-4">
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="rounded-2xl border border-line bg-surface p-6 flex items-start gap-4"
+              >
+                <span className="grid place-items-center h-11 w-11 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] shrink-0">
+                  <Mail size={19} />
+                </span>
+                <div>
+                  <p className="text-sm text-mute mb-1">Email us</p>
+                  <a href="mailto:flarestack.team@gmail.com" className="font-display text-base font-semibold text-paper hover:text-[#3874FF] transition-colors">
+                    flarestack.team@gmail.com
+                  </a>
                 </div>
-              )}
+              </motion.div>
 
-              <Button type="submit" className="w-full justify-center" icon={false}>
-                {status === "loading" ? (
-                  <span className="flex items-center gap-2">
-                    <Loader2 size={16} className="animate-spin" /> Submitting...
-                  </span>
-                ) : (
-                  "Submit application"
-                )}
-              </Button>
-            </motion.form>
-          )}
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.06 }}
+                className="rounded-2xl border border-line bg-surface p-6 flex items-start gap-4"
+              >
+                <span className="grid place-items-center h-11 w-11 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] shrink-0">
+                  <Clock size={19} />
+                </span>
+                <div>
+                  <p className="text-sm text-mute mb-1">Response time</p>
+                  <p className="font-display text-base font-semibold text-paper">Within one week</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.12 }}
+                className="rounded-2xl border border-line bg-surface p-6 flex items-start gap-4"
+              >
+                <span className="grid place-items-center h-11 w-11 rounded-xl bg-gradient-to-br from-[#1B4EF5]/15 to-[#3874FF]/15 text-[#3874FF] shrink-0">
+                  <MapPin size={19} />
+                </span>
+                <div>
+                  <p className="text-sm text-mute mb-1">Work location</p>
+                  <p className="font-display text-base font-semibold text-paper">Remote-first</p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.18 }}
+                className="rounded-2xl border border-line bg-gradient-to-br from-[#1B4EF5]/10 to-[#3874FF]/10 p-6"
+              >
+                <div className="flex items-start gap-3">
+                  <Briefcase size={18} className="text-[#1B4EF5] mt-0.5 shrink-0" />
+                  <p className="text-sm text-paper/90 leading-relaxed">
+                    We're looking for passionate people who want to build great products and grow with us. If you don't see a perfect match, we still want to hear from you.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Form column */}
+            <div>
+              {status === "success" ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="rounded-2xl border border-[#1B4EF5]/30 bg-surface p-12 text-center h-full flex flex-col items-center justify-center"
+                >
+                  <CheckCircle2 size={40} className="text-[#1B4EF5] mb-5" />
+                  <h3 className="font-display text-2xl font-semibold mb-2">Application received</h3>
+                  <p className="text-mute max-w-sm">
+                    Thanks for applying — our team will review it and get back to
+                    you soon.
+                  </p>
+                </motion.div>
+              ) : (
+                <motion.form
+                  onSubmit={handleSubmit}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="rounded-2xl border border-line bg-surface p-7 sm:p-9 space-y-5"
+                >
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <Field label="Full name" name="name" value={form.name} onChange={handleChange} required />
+                    <Field label="Email address" name="email" type="email" value={form.email} onChange={handleChange} required />
+                  </div>
+                  <div>
+                    <Field label="Subject" name="subject" value={form.subject} onChange={handleChange} required />
+                  </div>
+                  <div>
+                    <label className="text-sm text-paper/90 mb-2 block">Position</label>
+                    <select
+                      name="position"
+                      value={form.position}
+                      onChange={handleChange}
+                      required
+                      className="w-full rounded-lg bg-void border border-line px-4 py-3 text-sm text-paper focus:outline-none focus:border-[#1B4EF5]/60 transition-colors"
+                    >
+                      <option value="">Select a role</option>
+                      {jobs.map((j) => (
+                        <option key={j.title} value={j.title}>
+                          {j.title}
+                        </option>
+                      ))}
+                      <option value="General application">General application</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="text-sm text-paper/90 mb-2 block">
+                      Tell us about yourself & link your resume/portfolio
+                    </label>
+                    <textarea
+                      name="message"
+                      value={form.message}
+                      onChange={handleChange}
+                      required
+                      rows={5}
+                      placeholder="A bit about your experience, and a link to your resume or portfolio..."
+                      className="w-full rounded-lg bg-void border border-line px-4 py-3 text-sm text-paper placeholder:text-mute/60 focus:outline-none focus:border-[#1B4EF5]/60 transition-colors resize-none"
+                    />
+                  </div>
+
+                  {status === "error" && (
+                    <div className="flex items-center gap-2 text-sm text-[#1B4EF5]">
+                      <AlertCircle size={16} /> Something went wrong — please try again or email us directly.
+                    </div>
+                  )}
+
+                  <Button type="submit" className="w-full justify-center" icon={false}>
+                    {status === "loading" ? (
+                      <span className="flex items-center gap-2">
+                        <Loader2 size={16} className="animate-spin" /> Submitting...
+                      </span>
+                    ) : (
+                      "Submit application"
+                    )}
+                  </Button>
+                  <p className="text-xs text-mute text-center">
+                    We typically respond within one week.
+                  </p>
+                </motion.form>
+              )}
+            </div>
+          </div>
         </div>
       </section>
     </>

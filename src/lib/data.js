@@ -213,6 +213,13 @@ export const jobs = [
     description:
       "Lead UI/UX for client web platforms and internal AI tools, from concept through to shipped, polished interfaces.",
   },
+  {
+    title: "Business Development Executive",
+    type: "Full-time · Remote",
+    dept: "Sales",
+    description:
+      "Drive business growth by identifying new opportunities, building client relationships, and closing deals for our digital services.",
+  },
 ];
 
 export const stats = [
