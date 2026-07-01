@@ -33,9 +33,6 @@ export default function Footer() {
               Digital and business growth solutions — IT, AI, web, marketing and
               advertising under one roof.
             </p>
-            <div className="flex items-center gap-3 mt-6">
-              <a href="#" className="text-sm text-mute hover:text-paper transition-colors">Social</a>
-            </div>
           </div>
 
           {cols.map((col) => (
