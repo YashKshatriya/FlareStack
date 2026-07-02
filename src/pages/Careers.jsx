@@ -46,7 +46,7 @@ export default function Careers() {
         <div className="container-flare grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {perks.map((p, i) => (
             <FadeUp key={p} delay={i * 0.06} className="flex items-start gap-3 rounded-xl border border-line bg-surface p-5">
-              <CheckCircle2 size={18} className="text-[#1B4EF5] mt-0.5 shrink-0" />
+              <span className="text-[#1B4EF5] mt-0.5 shrink-0">✓</span>
               <p className="text-sm text-paper/90">{p}</p>
             </FadeUp>
           ))}
